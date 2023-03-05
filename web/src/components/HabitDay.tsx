@@ -4,6 +4,7 @@ import dayjs from 'dayjs';
 import * as Popover from '@radix-ui/react-popover';
 
 import { ProgressBar } from './ProgressBar';
+import { HabitsList } from './HabitList';
 
 interface HabitDayProps {
   date: Date
@@ -38,6 +39,8 @@ export function HabitDay({ defaultCompleted = 0, amount = 0, date }: HabitDayPro
           <span className="mt-1 font-extrabold leading-tight text-3xl">{dayAndMonth}</span>
 
           <ProgressBar progress={comlpetedPercentage} />
+
+          <HabitsList date={date} />
 
           <Popover.Arrow height={8} width={16} className='fill-zinc-900' />
         </Popover.Content>
