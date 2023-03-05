@@ -19,6 +19,10 @@ export function HabitDay({ defaultCompleted = 0, amount = 0, date }: HabitDayPro
 
   const dayAndMonth = dayjs(date).format('DD/MM')
   const dayOfWeek = dayjs(date).format('dddd')
+
+  function handleCompletedChaged(completed: number) {
+    setCompleted(completed)
+  }
   
   return (
     <Popover.Root>
@@ -40,7 +44,7 @@ export function HabitDay({ defaultCompleted = 0, amount = 0, date }: HabitDayPro
 
           <ProgressBar progress={comlpetedPercentage} />
 
-          <HabitsList date={date} />
+          <HabitsList date={date} onCompletedChanged={handleCompletedChaged} />
 
           <Popover.Arrow height={8} width={16} className='fill-zinc-900' />
         </Popover.Content>
