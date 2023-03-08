@@ -11,6 +11,7 @@ import { BackButton } from "../components/BackButton";
 import { ProgressBar } from "../components/Progress.Bar";
 import { Checkbox } from "../components/Checkbox";
 import { Loading } from "../components/Loading";
+import { HabitsEmpty } from "../components/HabitsEmpty";
 
 interface Params {
   date: string;
@@ -99,7 +100,7 @@ export function Habit() {
 
         <View className={clsx("mt-6", {['opacity-50']: isDateInPast })}>
           {
-            dayInfo?.possibleHabits &&
+            dayInfo?.possibleHabits ?
             dayInfo?.possibleHabits.map(habit => (
               <Checkbox 
                 key={habit.id}
@@ -109,6 +110,7 @@ export function Habit() {
                 disabled={isDateInPast}
               />
             ))
+            : <HabitsEmpty />
           }
         </View>
 
